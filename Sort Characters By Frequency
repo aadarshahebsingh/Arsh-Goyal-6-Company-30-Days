@@ -1,0 +1,13 @@
+class Solution {
+public:
+    string frequencySort(string s) {
+        vector<int> ans(256,0);
+        for(char c:s){
+            ans[c]++;
+        }
+        sort(s.begin(),s.end(), [&](char a,char b){
+            return ans[a]>ans[b] || ans[a]==ans[b] && a>b;
+        });
+        return s;
+    }
+};
